@@ -1,5 +1,5 @@
 # koa-push-notification
-A web application to push notifications for grocery shoppings
+A client-side script to push notifications for grocery shoppings
 
 ## Project Setup
 1. Run `npm install`
