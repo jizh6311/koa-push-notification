@@ -1,0 +1,34 @@
+{
+  "name": "koa-push-notification",
+  "version": "1.0.0",
+  "description": "A web application to push notifications for grocery shoppings",
+  "main": "app.js",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "koa": "^2.11.0",
+    "koa-bodyparser": "^4.3.0",
+    "koa-router": "^8.0.8",
+    "koa-static": "^5.0.0",
+    "web-push": "^3.4.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jizh6311/koa-push-notification.git"
+  },
+  "keywords": [
+    "koa",
+    "push-notifications",
+    "nodejs"
+  ],
+  "author": "Jian Zhang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jizh6311/koa-push-notification/issues"
+  },
+  "homepage": "https://github.com/jizh6311/koa-push-notification#readme"
+}
