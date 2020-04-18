@@ -22,15 +22,20 @@ async function run() {
     });
   console.log('Registered push');
 
-  console.log('Sending push');
-  await fetch('/subscribe', {
-    method: 'POST',
-    body: JSON.stringify(subscription),
-    headers: {
-      'content-type': 'application/json'
-    }
-  });
-  console.log('Sent push');
+  while (true) {
+    console.log('Sending push');
+    await fetch('/subscribe', {
+      method: 'POST',
+      body: JSON.stringify(subscription),
+      headers: {
+        'content-type': 'application/json'
+      }
+    });
+    
+    // Send notification every 1 min
+    await new Promise(r => setTimeout(r, 1000 * 60));
+    console.log('Sent push');
+  }
 }
 
 // Boilerplate borrowed from https://www.npmjs.com/package/web-push#using-vapid-key-for-applicationserverkey
