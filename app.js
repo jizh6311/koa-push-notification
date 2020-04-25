@@ -2,16 +2,21 @@ require('dotenv').config()
 
 const Koa = require('koa');
 const Router = require('koa-router');
+const logger = require("koa-logger");
 const serve = require('koa-static');
+
 const webpush = require("web-push");
 const path = require("path");
 const bodyParser = require('koa-bodyparser');
-
+const cors = require('koa-cors');
 const app = new Koa();
 const router = new Router();
 
-app.use(serve(path.join(__dirname, "client")));
+app.use(serve(path.join(__dirname, "./frontend/build")));
+
 app.use(bodyParser());
+app.use(logger());
+app.use(cors());
 
 // Replace with your email
 webpush.setVapidDetails(
@@ -40,4 +45,6 @@ app
   .use(router.routes())
   .use(router.allowedMethods());
   
-app.listen(5000);
+app.listen(5000, () => {
+  console.log("listening on port 5000")
+});
