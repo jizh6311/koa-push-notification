@@ -15,6 +15,7 @@
     "web-push": "^3.4.3"
   },
   "devDependencies": {
+    "bl": "^4.0.3",
     "lodash": "^4.17.19"
   },
   "scripts": {

@@ -32,6 +32,7 @@
     ]
   },
   "devDependencies": {
-    "lodash": "^4.17.19"
+    "lodash": "^4.17.19",
+    "serialize-javascript": "^5.0.1"
   }
 }
