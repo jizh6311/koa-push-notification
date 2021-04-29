@@ -1,5 +1,6 @@
-require('dotenv').config()
+'use strict';
 
+const fs = require('fs');
 const Koa = require('koa');
 const Router = require('koa-router');
 const logger = require("koa-logger");
@@ -19,10 +20,12 @@ app.use(logger());
 app.use(cors());
 
 // Replace with your email
+let rawDataForKeys = fs.readFileSync('./keys.json');
+let dataForKeys = JSON.parse(rawDataForKeys)
 webpush.setVapidDetails(
-  process.env.MAILTO,
-  process.env.PUBLIC_VAPID_KEY,
-  process.env.PRIVATE_VAPID_KEY
+  dataForKeys["MAILTO"],
+  dataForKeys["PUBLIC_VAPID_KEY"],
+  dataForKeys["PRIVATE_VAPID_KEY"]
 );
 
 router.post('/subscribe', (ctx, next) => {

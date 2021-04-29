@@ -1,5 +1,13 @@
 // TODO: Get vapid key on client-side instead of hard-code
-const publicVapidKey = "BAmmWJB2UYjDWLmtpUkRV2oa90BaTRpNWavc2faX3PWm6hEIEeQqyB9M_DjIwLwO2Chy_C7JblWiHkJnDjBfX3s";
+async function getPublicKey() {
+  try {
+    let keysRawData = await fetch('keys.json');
+    return keysRawData.json();
+  } catch (err) {
+    console.log(err);
+  }
+}
+
 if ('serviceWorker' in navigator) {
   console.log('Registering service worker');
 
@@ -13,13 +21,16 @@ async function run() {
   console.log('Registered service worker');
 
   console.log('Registering push');
+  const publicVapidKeyRes = await getPublicKey();
+  console.log(JSON.stringify(publicVapidKeyRes))
   const subscription = await registration.pushManager.
     subscribe({
       userVisibleOnly: true,
       // The `urlBase64ToUint8Array()` function is the same as in
       // https://www.npmjs.com/package/web-push#using-vapid-key-for-applicationserverkey
-      applicationServerKey: urlBase64ToUint8Array(publicVapidKey)
+      applicationServerKey: urlBase64ToUint8Array(publicVapidKeyRes["PUBLIC_VAPID_KEY"])
     });
+
   console.log('Registered push');
 
   while (true) {

@@ -4,7 +4,6 @@
   "description": "A web application to push notifications for grocery shoppings",
   "main": "app.js",
   "dependencies": {
-    "dotenv": "^8.2.0",
     "kafka-node": "^5.0.0",
     "koa": "^2.11.0",
     "koa-bodyparser": "^4.3.0",
