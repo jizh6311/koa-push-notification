@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "bl": "^4.0.3",
-    "lodash": "^4.17.19"
+    "lodash": "^4.17.21"
   },
   "scripts": {
     "build": "cd ./frontend && yarn build",
